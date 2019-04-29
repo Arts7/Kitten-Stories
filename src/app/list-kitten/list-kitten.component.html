@@ -1,0 +1,10 @@
+<h2 class="col-6">Liste de chat à adopter:</h2>
+<div class="form" *ngFor="let miaou of list">
+  <p>Nom : {{miaou.catName}}.</p>
+  <p>Race : {{miaou.catRace}}.</p>
+  <p>Birthday : {{miaou.catBD}}.</p>
+  <p>{{miaou.urlImg}}</p>
+  <br/>
+  <button (click)="adopt(miaou)">Adopter</button>
+</div>
+

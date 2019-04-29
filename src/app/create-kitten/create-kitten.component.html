@@ -1,0 +1,46 @@
+<h2>Donner votre chat:</h2><br />
+<form (ngSubmit)="myForm.valid && onSubmit()" #myForm="ngForm">
+    <div *ngIf="displayDiagnostic">
+        Form submitted ? {{myForm.submitted}}
+        Form valid ? {{myForm.valid}}
+        Form invalid ? {{myForm.invalid}}
+    </div>
+
+    <div>
+        <label for="name">Nom:</label>
+        <input name="name" type="text" [(ngModel)]="catName" #name="ngModel" required maxlength="25" required
+            minlength="2">
+    </div>
+    <div *ngIf="name.errors && myForm.submitted">
+        <span *ngIf="name.errors.required">Le champ est requis</span>
+        <span *ngIf="name.errors.minlength">Le champ user doit avoir minimum 2 caractères</span>
+        <span *ngIf="name.errors.maxlength">Le champ user ne pas dépasser 25 caractères</span>
+    </div>
+    <div>
+        <label for="race">Race:</label>
+        <input name="race" type="text" [(ngModel)]="catRace" #race="ngModel" required maxlength="25" required
+            minlength="2">
+    </div>
+    <div *ngIf="race.errors && myForm.submitted">
+        <span *ngIf="race.errors.required">Le champ est requis</span>
+        <span *ngIf="race.errors.minlength">Le champ user doit avoir minimum 2 caractères</span>
+        <span *ngIf="race.errors.maxlength">Le champ user ne pas dépasser 25 caractères</span>
+    </div>
+    <div>
+        <label for="age">Age:</label>
+        <input name="age" type="number" [(ngModel)]="catBD" #age="ngModel" required maxlength="25" required
+            minlength="2">
+    </div>
+    <div *ngIf="age.errors && myForm.submitted">
+        <span *ngIf="age.errors.required">Le champ est requis</span>
+    </div>
+    <div>
+        <label for="url">URL Image:</label>
+        <input name="url" type="string" [(ngModel)]="urlImg" #url="ngModel" required maxlength="25" required
+            minlength="2">
+    </div>
+    <div *ngIf="url.errors && myForm.submitted">
+        <span *ngIf="url.errors.required">Le champ est requis</span>
+    </div>
+    <button (click)="submit">Donner! </button>
+</form>
